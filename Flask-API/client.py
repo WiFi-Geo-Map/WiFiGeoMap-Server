@@ -4,7 +4,7 @@ import json
 # Define the input data
 input_data = {
     'intensity': 65,
-    'bssid': '38:17:c3:f2:50:22'
+    'bssid': '38:17:c3:b7:2e:21'
 }
 
 # Make an HTTP POST request to the API server
