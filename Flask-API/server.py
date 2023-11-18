@@ -31,7 +31,7 @@ def process_input():
 
         # Close the database connection
         conn.close()
-        response_data ={'classroom':room,'bssid':bssid}
+        response_data ={'classroom':room[0],'bssid':bssid}
         #response_data = {'grid_name': grid_id, 'classroom': room, 'floor': classroom_info[1], 'block': classroom_info[2]}
         print(response_data)
         return jsonify(response_data)
