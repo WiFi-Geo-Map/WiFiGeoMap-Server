@@ -3,8 +3,13 @@ import json
 
 # Define the input data
 input_data = {
-    'intensity': 65,
-    'bssid': '38:17:c3:f2:4c:81'
+    'bs1': 'e2:55:b8:29:4d:ef',
+    'inten1': 45,
+    'bs2': 'f6:55:b8:29:4d:ef',
+    'inten2': 45,
+    'bs3': 'e6:55:b8:29:4d:ef',
+    'inten3': 46,
+    'dest':'C4'
 }
 
 # Make an HTTP POST request to the API server

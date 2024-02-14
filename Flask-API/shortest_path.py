@@ -1,11 +1,17 @@
 from collections import deque
 
-def is_valid(matrix, visited, row, col):
+def is_valid(matrix, visited, row, col,current):
     n = len(matrix)
     m = len(matrix[0])
-    return (row >= 0) and (row < n) and (col >= 0) and (col < m) and (matrix[row][col] == 1) and not visited[row][col]
+    return (row >= 0) and (row < n) and (col >= 0) and (col < m) and (matrix[row][col]+matrix[current[0]][current[1]] > 0) and not visited[row][col]
 
-def shortest_path(matrix, start, end):
+def shortest_path(start, end):
+    matrix = [
+    [0, 0, 0, 0],
+    [1, 1, 1, 1],
+    [0, 1, 1, 0],
+    [0, 1, 1, 0]
+    ]
     n = len(matrix)
     m = len(matrix[0])
     visited = [[False for _ in range(m)] for _ in range(n)]
@@ -27,7 +33,7 @@ def shortest_path(matrix, start, end):
         for direction in directions:
             row = current[0] + direction[0]
             col = current[1] + direction[1]
-            if is_valid(matrix, visited, row, col):
+            if is_valid(matrix, visited, row, col, current):
                 queue.append((row, col))
                 visited[row][col] = True
                 parent[(row, col)] = current
@@ -35,19 +41,13 @@ def shortest_path(matrix, start, end):
     return []
 
 # Example usage
-matrix = [
-    [1, 0, 1, 0],
-    [1, 1, 0, 0],
-    [0, 1, 1, 0],
-    [1, 1, 1, 1],
-    [1, 1, 1, 1],
-]
-start_point = (0, 0)
-end_point = (4, 3)
 
-path = shortest_path(matrix, start_point, end_point)
-if path:
-    print(f"There is a path from {start_point} to {end_point}")
-    print("The shortest path is:", path)
-else:
-    print(f"There is no path from {start_point} to {end_point}")
+# start_point = (1, 0)
+# end_point = (0, 0)
+
+# path = shortest_path(matrix, start_point, end_point)
+# if path:
+#     print(f"There is a path from {start_point} to {end_point}")
+#     print("The shortest path is:", path)
+# else:
+#     print(f"There is no path from {start_point} to {end_point}")
